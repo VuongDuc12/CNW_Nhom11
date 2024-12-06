@@ -50,7 +50,7 @@
                 </form>
                 
 
-                <a href="index.php?action=admin" class="btn btn-primary" id = 'login' >Đăng nhập</a>
+                <a href="index.php?controller=Admin&action=login" class="btn btn-primary" id = 'login' >Đăng nhập</a>
                 
             </div>
         </div>

@@ -7,4 +7,4 @@ if (!isset($_SESSION['user'])) {
 ?>
 
 <h1>Chào mừng, <?php echo htmlspecialchars($_SESSION['user']); ?>!</h1>
-<a href="/index.php?controller=Admin&action=logout">Đăng xuất</a>
+<a href="index.php?controller=Admin&action=logout">Đăng xuất</a>

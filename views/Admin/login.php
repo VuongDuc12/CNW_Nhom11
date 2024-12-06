@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Design by foolishdeveloper.com -->
-    <title>Glassmorphism login Form Tutorial in html css</title>
+    <title>login</title>
  
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -139,20 +140,21 @@ button{
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form>
-        <h3>Login Here</h3>
+    <form method="POST" action="index.php?controller=Admin&action=handleLogin">
+                <h3>Login Here</h3>
+                <?php if (isset($error)): ?>
+                    <p style="color: red;"><?php echo $error; ?></p>
+                <?php endif; ?>
+                <label for="username">Username</label>
+                <input type="text" name="username" required>
 
-        <label for="username">Username</label>
-        <input type="text" placeholder="Email or Phone" id="username">
+                <label for="password">Password</label>
+                <input type="password" name="password" required>
 
-        <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password">
+                <button type="submit" class="btn btn-primary login-btn btn-block" name="signIn" value="login">Login</button>
+            </form>
 
-        <button>Log In</button>
-        <div class="social">
-          <div class="go"><i class="fab fa-google"></i>  Google</div>
-          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
-        </div>
-    </form>
+</form>
+
 </body>
 </html>
