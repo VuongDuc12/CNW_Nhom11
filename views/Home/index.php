@@ -28,6 +28,17 @@
         .navbar-brand{
             font-weight: bold;
         }
+        .nav-link {
+    color: white; /* Màu mặc định */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Thêm hiệu ứng chuyển đổi */
+}
+
+.nav-link:hover {
+    color: #007bff; /* Màu chữ khi hover */
+    background-color: rgba(255, 255, 255, 0.1); /* Màu nền khi hover */
+    border-radius: 5px; /* Bo góc nhẹ */
+}
+
     </style>
 </head>
 <body>
