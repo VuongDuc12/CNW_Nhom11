@@ -88,7 +88,7 @@
                             <p class="card-text"><?php echo htmlspecialchars($news['content']); ?></p>
                             <p><strong>Danh mục:</strong> <?php echo htmlspecialchars($news['category_id']); ?></p> <!-- Hoặc xử lý danh mục -->
                             <p><small><em>Ngày tạo: <?php echo htmlspecialchars($news['created_at']); ?></em></small></p>
-                            <a href="index.php?action=viewNews&id=<?php echo $news['id']; ?>" class="btn btn-primary mt-3">Chi tiết</a>
+                            <a href="index.php?controller=News&action=viewNews&id=<?php echo $news['id']; ?>" class="btn btn-primary mt-3">Chi tiết</a>
 
                         </div>
                     </div>
