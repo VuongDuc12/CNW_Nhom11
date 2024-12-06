@@ -73,7 +73,15 @@
 <body>
 
 <div class="container">
+    <div style="display: flex; justify-content: flex-end;">
+        <a href="index.php">
+            <button class="btn btn-primary">Đăng xuất</button>
+        </a>
+    </div>
+
     <h1>News</h1>
+
+
     <table class="table table-striped table-bordered">
         <thead>
         <tr>
@@ -116,7 +124,10 @@
         </tbody>
     </table>
 
-    <a href="index.php?controller=Admin&action=AddTinTuc"><button id="add-news" class="btn btn-primary">Thêm tin tức</button></a>
+        <a href="index.php?controller=Admin&action=AddTinTuc"><button id="add-news" class="btn btn-primary">Thêm tin tức</button></a>
+
+
+
 </div>
 
 
