@@ -42,7 +42,7 @@ INSERT INTO categories (name) VALUES
 
 -- Thêm dữ liệu mẫu vào bảng 'news'
 INSERT INTO news (title, content, image, category_id) VALUES
-                                                          ('Tin Thời sự 1', 'Nội dung bài viết thời sự 1', '../config/images/Camtucau.webp', 1),
-                                                          ('Tin Thể thao 1', 'Nội dung bài viết thể thao 1', '../config/images/Cuclanho.webp', 2),
-                                                          ('Tin Giải trí 1', 'Nội dung bài viết giải trí 1', '../config/images/DaYenHoang.webp', 3),
-                                                          ('Tin Kinh tế 1', 'Nội dung bài viết kinh tế 1', '../config/images/Hoacamchuong.webp', 4);
+                                                          ('Tin Thời sự 1', 'Nội dung bài viết thời sự 1', '../assets/img/daYen.webp', 1),
+                                                          ('Tin Thể thao 1', 'Nội dung bài viết thể thao 1', '../assets/img/HoaCamTruong.webp', 2),
+                                                          ('Tin Giải trí 1', 'Nội dung bài viết giải trí 1', '../assets/img/HoaDongTien.webp', 3),
+                                                          ('Tin Kinh tế 1', 'Nội dung bài viết kinh tế 1', '../assets/img/HoaGiay.webp', 4);

@@ -1,49 +1,45 @@
 <?php
 require_once __DIR__ . '/../database/database.php';
+// models/News.php
+// models/News.php
+class News {
+    private $pdo;
 
-class News
-{
-    private $conn;
-
-    public function __construct()
+    // Khởi tạo kết nối PDO
+    public function __construct($pdo)
     {
-        $db = new Database();
-        $this->conn = $db->getConnection();
+        $this->pdo = $pdo; // Sử dụng PDO đã được truyền vào từ controller
     }
 
-    public function getAllNews()
-    {
-        $sql = "SELECT news.*, categories.name AS category_name 
-                FROM news 
-                LEFT JOIN categories ON news.category_id = categories.id
-                ORDER BY created_at DESC";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
+    // Phương thức lấy chi tiết tin tức theo ID
     public function getNewsById($id)
     {
-        $sql = "SELECT news.*, categories.name AS category_name 
-                FROM news 
-                LEFT JOIN categories ON news.category_id = categories.id
-                WHERE news.id = :id";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':id', $id);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($this->pdo) {
+            $sql = "SELECT * FROM news WHERE id = :id";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(['id' => $id]);
+            return $stmt->fetch();
+        } else {
+            echo "Không có kết nối cơ sở dữ liệu!";
+            return null;
+        }
     }
 
+    // Phương thức lấy tất cả tin tức
+    public function getAllNews() {
+        $sql = "SELECT * FROM news ORDER BY created_at DESC";  // Câu lệnh SQL lấy tin tức
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();  // Thực thi truy vấn
+        return $stmt;  // Trả về PDOStatement
+    }
     public function searchNews($keyword)
     {
-        $sql = "SELECT news.*, categories.name AS category_name 
-                FROM news 
-                LEFT JOIN categories ON news.category_id = categories.id
-                WHERE news.title LIKE :keyword
-                ORDER BY created_at DESC";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindValue(':keyword', "%$keyword%");
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $sql = "SELECT * FROM news WHERE title LIKE :keyword OR content LIKE :keyword";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(['keyword' => '%' . $keyword . '%']);
+        return $stmt->fetchAll();
     }
 }
+
+?>
+
