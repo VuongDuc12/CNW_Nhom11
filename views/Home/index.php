@@ -81,7 +81,7 @@
             <?php foreach ($newsItems as $news): ?>
                 <div class="col-md-4 d-flex align-items-stretch my-3">
                     <div class="card shadow-sm">
-                    <img src="../assets/img/<?php echo htmlspecialchars($news['image']); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($news['title']); ?>">
+                    <img src="<?= htmlspecialchars($news['image']) ?>" alt="<?= htmlspecialchars($news['image']) ?>" class="card-img-top" >
 
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title"><?php echo htmlspecialchars($news['title']); ?></h5>

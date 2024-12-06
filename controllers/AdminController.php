@@ -109,7 +109,9 @@ class AdminController{
                     $fileNameNew = uniqid('', true) . "." . $fileActuaExt;
 
                     // Đường dẫn lưu trữ file
+
                     $uploadDir = __DIR__ . '/../../assets/images/uploads/';
+       
                     if (!is_dir($uploadDir)) {
                         mkdir($uploadDir, 0777, true); // Tạo thư mục nếu chưa tồn tại
                     }
@@ -131,7 +133,10 @@ class AdminController{
         }
 
         // Lưu thông tin vào cơ sở dữ liệu
+
         $relativePath = "../../assets/images/uploads/" . $fileNameNew; // Đường dẫn tương đối để lưu vào DB
+
+       
         $this->dataCategory->addCategory($name);
         $this->dataNews->addNews($name, $title, $content, $relativePath);
 
