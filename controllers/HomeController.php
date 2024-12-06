@@ -5,7 +5,9 @@
 require_once __DIR__ . '/../models/News.php';  // Nhúng lớp News
 require_once __DIR__ . '/../database/database.php'; // Nhúng lớp Database
 
+
 class HomeController {
+    private $news;
     public function index() {
         // Tạo đối tượng Database để kết nối với cơ sở dữ liệu
         $db = new Database();
@@ -31,6 +33,12 @@ class HomeController {
         // Chuyển hướng đến trang Login
         header("Location: /controllers/AdminController.php?action=login");
         exit;
+    }
+
+    public function viewNews($id)
+    {
+        $newsItem = $this->news->getNewsById($id);
+        include 'views/News/detail.php';
     }
 }
 

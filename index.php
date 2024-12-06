@@ -3,17 +3,29 @@ $controller = $_GET['controller'] ?? 'home';
 $action = $_GET['action'] ?? 'index';
 
 $controller = ucfirst($controller) . 'Controller';
-$controllerFile = "controllers/$controller.php";
+$controllerFile = __DIR__ . DIRECTORY_SEPARATOR . "controllers" . DIRECTORY_SEPARATOR . $controller . ".php";
+
+// Hàm xử lý lỗi
+function handleError($message) {
+    http_response_code(404); // Trả về lỗi 404
+    echo $message;
+    exit;
+}
 
 if (file_exists($controllerFile)) {
     require_once $controllerFile;
-    $controllerObj = new $controller();
-    if (method_exists($controllerObj, $action)) {
-        $controllerObj->$action();
+    if (class_exists($controller)) {
+        $controllerObj = new $controller();
+        if (method_exists($controllerObj, $action)) {
+            $id = $_GET['id'] ?? null; // Tham số bổ sung
+            $controllerObj->$action($id);
+        } else {
+            handleError("Action không tồn tại.");
+        }
     } else {
-        echo "Action không tồn tại.";
+        handleError("Lớp controller không tồn tại.");
     }
 } else {
-    echo "Controller không tồn tại.";
+    handleError("Tệp controller không tồn tại.");
 }
 ?>

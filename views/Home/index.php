@@ -81,14 +81,14 @@
             <?php foreach ($newsItems as $news): ?>
                 <div class="col-md-4 d-flex align-items-stretch my-3">
                     <div class="card shadow-sm">
-                    <img src="../assets/img/<?php echo htmlspecialchars($news['image']); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($news['title']); ?>">
+                    <img src="<?= htmlspecialchars($news['image']) ?>" alt="<?= htmlspecialchars($news['image']) ?>" class="card-img-top" >
 
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title"><?php echo htmlspecialchars($news['title']); ?></h5>
                             <p class="card-text"><?php echo htmlspecialchars($news['content']); ?></p>
                             <p><strong>Danh mục:</strong> <?php echo htmlspecialchars($news['category_id']); ?></p> <!-- Hoặc xử lý danh mục -->
                             <p><small><em>Ngày tạo: <?php echo htmlspecialchars($news['created_at']); ?></em></small></p>
-                            <a href="index.php?action=viewNews&id=<?php echo $news['id']; ?>" class="btn btn-primary mt-3">Chi tiết</a>
+                            <a href="index.php?controller=News&action=viewNews&id=<?php echo $news['id']; ?>" class="btn btn-primary mt-3">Chi tiết</a>
 
                         </div>
                     </div>
