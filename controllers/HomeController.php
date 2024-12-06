@@ -26,6 +26,12 @@ class HomeController {
         // Truyền các tin tức vào view (index.php)
         include_once(__DIR__ . '/../views/Home/index.php');
     }
+
+    public function login() {
+        // Chuyển hướng đến trang Login
+        header("Location: /controllers/AdminController.php?action=login");
+        exit;
+    }
 }
 
 ?>

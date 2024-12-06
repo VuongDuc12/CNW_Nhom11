@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header("Location: /index.php?controller=Admin&action=login");
+    exit;
+}
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dasboard</title>
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-</head>
-
-<body>
-   Trang Dasboard
-</body>
-
-</html>
+<h1>Chào mừng, <?php echo htmlspecialchars($_SESSION['user']); ?>!</h1>
+<a href="/index.php?controller=Admin&action=logout">Đăng xuất</a>

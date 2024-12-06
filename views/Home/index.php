@@ -1,10 +1,4 @@
 
-<?php
-
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,8 +48,10 @@
                 <input class="form-control me-2" type="search" placeholder="Tìm kiếm..." value="<?php echo $keyword; ?>" name="keyword">
                 <button class="btn btn-primary" type="submit" name="action" value="searchNews">Tìm kiếm</button>
                 </form>
-                <a href="login.php" class="btn btn-primary" id = 'login' >Đăng nhập</a>
+                
 
+                <a href="index.php?action=admin" class="btn btn-primary" id = 'login' >Đăng nhập</a>
+                
             </div>
         </div>
     </nav>
