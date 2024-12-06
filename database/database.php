@@ -2,7 +2,7 @@
 class Database {
     // Database configuration information
     private $host = "localhost";
-    private $database_name = "tintuc";
+    private $database_name = "news_website";
     private $username = "root";
     private $password = "";
     public $conn;
