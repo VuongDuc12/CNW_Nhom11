@@ -1,4 +1,5 @@
 <?php
+    require_once("./database/database.php");
     require_once './models/User.php';
 class AdminController
 {
@@ -11,8 +12,9 @@ class AdminController
     public function login() {
       
     
-    
-        // ... (Kết nối CSDL)
+        $database = new Database();
+        $db = $database->getConnection();
+       
         $user = new User($db);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $username = $_POST['username'];
@@ -27,7 +29,7 @@ class AdminController
         // Xác thực thất bại
         }
         }
-        ?
+        
     }
     public function dashboard() {
         

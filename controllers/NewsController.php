@@ -1,6 +1,6 @@
 <?php
-require_once 'models/News.php';
-require_once 'database/Database.php';
+require_once './models/News.php';
+require_once './database/Database.php';
 
 class NewsController
 {
